@@ -1,0 +1,166 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: #fff;
+  color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+@font-face {
+  font-family: "Arial";
+  src: local("arial"), url("/public/fonts/arial/arial.woff2") format("woff2"), url("/public/fonts/arial/arial.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: local("arial"), url("/public/fonts/arial/arialbold.woff2") format("woff2"), url("/public/fonts/arial/arialbold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Arial";
+}
+
+header {
+  padding: 15px 0;
+  background-color: #050505;
+}
+header p {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+}
+
+nav {
+  padding: 30px 0;
+  background-color: #31343b;
+}
+nav p {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+}
+
+.vidget {
+  background-color: #1C1C1E;
+  flex: 1;
+  padding: 20px 40px;
+}
+.vidget .vidger_wrapper .description {
+  font-size: 16px;
+  color: #FFF;
+  margin-bottom: 50px;
+}
+.vidget .vidger_wrapper .tanks_grid {
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 50px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank {
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.vidget .vidger_wrapper .tanks_grid .tank h6 {
+  color: #FFF;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+footer {
+  padding: 40px 0;
+  background-color: #050505;
+}
+footer p {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+}/*# sourceMappingURL=main.css.map */

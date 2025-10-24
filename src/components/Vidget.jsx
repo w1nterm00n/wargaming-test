@@ -1,4 +1,15 @@
+import ExpCalculator from "./ExpCalculator"
+import Tank from "./Tank"
+
+const tanks = [
+    'T-34', 'KV-1', 'T-150', 'IS-3', 'ST-1', 'Object-752'
+]
+
 function Vidget() {
+    const listTanks = tanks.map(tank => 
+        <Tank key={tank} name={tank}></Tank>
+    );
+
     return (
         <div className="vidget">
             <div className="vidger_wrapper">
@@ -7,35 +18,7 @@ function Vidget() {
                 </p>
 
                 <div className="tanks_grid">
-                    <div className="tank">
-                        <img src="./src/assets/tank.png" alt="tank image" />
-                        <h6>T-34</h6>
-                    </div>
-
-                    <div className="tank">
-                        <img src="./src/assets/tank.png" alt="tank image" />
-                        <h6>KV-1</h6>
-                    </div>
-
-                    <div className="tank">
-                        <img src="./src/assets/tank.png" alt="tank image" />
-                        <h6>T-150</h6>
-                    </div>
-
-                    <div className="tank">
-                        <img src="./src/assets/tank.png" alt="tank image" />
-                        <h6>IS-3</h6>
-                    </div>
-
-                    <div className="tank">
-                        <img src="./src/assets/tank.png" alt="tank image" />
-                        <h6>ST-1</h6>
-                    </div>
-
-                    <div className="tank">
-                        <img src="./src/assets/tank.png" alt="tank image" />
-                        <h6>Object-752</h6>
-                    </div>
+                    {listTanks}
                 </div>
             </div>
         </div>

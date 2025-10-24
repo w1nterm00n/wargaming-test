@@ -134,8 +134,8 @@ nav p {
   margin-bottom: 50px;
 }
 .vidget .vidger_wrapper .tanks_grid {
-  width: -moz-fit-content !important;
-  width: fit-content !important;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -143,16 +143,116 @@ nav p {
        column-gap: 20px;
   row-gap: 50px;
 }
-.vidget .vidger_wrapper .tanks_grid .tank {
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper {
+  position: relative;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper .tank {
   max-width: 260px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.vidget .vidger_wrapper .tanks_grid .tank h6 {
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper .tank h6 {
   color: #FFF;
   font-size: 28px;
   font-weight: 700;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:hover > .tank + .exp_calculator, .vidget .vidger_wrapper .tanks_grid .tank_wrapper:focus-within > .tank + .exp_calculator {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator {
+  top: 115%;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator::after {
+  top: -36px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator::before {
+  top: -38px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator {
+  bottom: 115%;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator::after {
+  bottom: -36px;
+  transform: rotate(180deg);
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator::before {
+  bottom: -38px;
+  transform: rotate(180deg);
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator {
+  bottom: 115%;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator::after {
+  right: 150px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator::before {
+  right: 150px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator {
+  left: 300px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator::after {
+  left: 105px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator::before {
+  left: 105px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator {
+  left: 105px;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator::after {
+  left: 50%;
+}
+.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator::before {
+  left: 50%;
+}
+
+.exp_calculator {
+  position: absolute;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.3s;
+}
+.exp_calculator .exp_calculator_wrapper {
+  display: flex;
+  height: 350px;
+}
+.exp_calculator .exp_calculator_wrapper .complectation {
+  background-color: rgba(42, 42, 42, 0.8980392157);
+  width: 400px;
+}
+.exp_calculator .exp_calculator_wrapper .tank_experience {
+  background-color: rgba(42, 42, 42, 0.8980392157);
+  width: 200px;
+}
+
+.exp_calculator::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 38px solid #747474;
+  position: absolute;
+}
+
+.exp_calculator::after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 38px solid #292929;
+  position: absolute;
 }
 
 footer {
@@ -163,4 +263,18 @@ footer p {
   text-align: center;
   color: white;
   font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .vidget .vidger_wrapper {
+    margin: 0 auto !important;
+  }
+  .vidget .vidger_wrapper .tanks_grid {
+    width: 100% !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    row-gap: 20px;
+  }
+  .vidget .vidger_wrapper .tanks_grid .tank {
+    margin: 0 auto;
+  }
 }/*# sourceMappingURL=main.css.map */

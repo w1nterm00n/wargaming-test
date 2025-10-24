@@ -223,16 +223,58 @@ nav p {
 .exp_calculator .exp_calculator_wrapper {
   display: flex;
   height: 350px;
+  flex-wrap: wrap;
+  background-color: rgba(42, 42, 42, 0.9);
+  padding: 30px;
+  justify-content: space-between;
+}
+.exp_calculator .exp_calculator_wrapper .heading {
+  font-weight: 700;
+  color: #AEAC7E;
+  font-size: 28px;
 }
 .exp_calculator .exp_calculator_wrapper .complectation {
-  background-color: rgba(42, 42, 42, 0.8980392157);
-  width: 400px;
+  flex: 1;
+  flex-basis: 200px;
 }
-.exp_calculator .exp_calculator_wrapper .tank_experience {
-  background-color: rgba(42, 42, 42, 0.8980392157);
-  width: 200px;
+.exp_calculator .exp_calculator_wrapper .complectation .complectationForm {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-
+.exp_calculator .exp_calculator_wrapper .tank_exp {
+  flex: 1;
+  flex-basis: 200px;
+}
+.exp_calculator .exp_calculator_wrapper .tank_exp .heading {
+  padding-bottom: 10px;
+}
+.exp_calculator .exp_calculator_wrapper .tank_exp div {
+  display: flex;
+  gap: 40px;
+}
+.exp_calculator .exp_calculator_wrapper .tank_exp div img {
+  width: 66px;
+  height: 66px;
+}
+.exp_calculator .exp_calculator_wrapper .tank_exp div .tank_exp_value {
+  font-weight: 700;
+  font-size: 56px;
+  color: #F8AA31;
+}
+.exp_calculator .exp_calculator_wrapper .fights_amount {
+  background-color: darkorchid;
+  width: 500px;
+  flex: 2;
+}
+.exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper .slider-row {
+  display: flex;
+  justify-content: space-between;
+}
+.exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper .slider-row .slider {
+  width: 320px;
+}
 .exp_calculator::before {
   content: "";
   display: block;
@@ -276,5 +318,22 @@ footer p {
   }
   .vidget .vidger_wrapper .tanks_grid .tank {
     margin: 0 auto;
+  }
+}
+@media (max-width: 650px) {
+  .exp_calculator .exp_calculator_wrapper {
+    flex-direction: column;
+  }
+  .exp_calculator .exp_calculator_wrapper .complectation {
+    flex: 1;
+    order: 1;
+  }
+  .exp_calculator .exp_calculator_wrapper .tank_exp {
+    flex: 1;
+    order: 3;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount {
+    flex: 1;
+    order: 2;
   }
 }/*# sourceMappingURL=main.css.map */

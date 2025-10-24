@@ -146,13 +146,63 @@ nav{
     .exp_calculator_wrapper{
         display: flex;
         height: 350px;
-        .complectation{
-            background-color: #2A2A2AE5;
-            width: 400px;
+        flex-wrap: wrap;
+        background-color: rgba(42, 42, 42, 0.9);
+        padding: 30px;
+        justify-content: space-between;
+        .heading{
+            font-weight: 700;
+            color: #AEAC7E;
+            font-size: 28px;
         }
-        .tank_experience{
-            background-color: #2A2A2AE5;
-            width: 200px;
+        .complectation{
+            flex: 1;
+            flex-basis: 200px;
+            .complectationForm{
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .tank_exp{
+            flex: 1;
+            flex-basis: 200px;
+            .heading{
+                padding-bottom: 10px;
+            }
+            div{
+                display: flex;
+                gap: 40px;
+                img{
+                    width: 66px;
+                    height: 66px;
+                }
+                .tank_exp_value{
+                    font-weight: 700;
+                    font-size: 56px;
+                    color: #F8AA31;
+                }
+            }
+        }
+        .fights_amount{
+            background-color: darkorchid;
+            width: 500px;
+            flex: 2;
+            .fight_amount_slider{
+                .fight_amount_slider_wrapper{
+                    .slider-row{
+                        display: flex;
+                        justify-content: space-between;
+                        .slider{
+                            width: 320px;
+                        }
+                        .display{
+
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -201,6 +251,27 @@ footer{
                 .tank{
                     margin: 0 auto;
                 }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 650px) {
+    .exp_calculator{
+        .exp_calculator_wrapper{
+            flex-direction: column;
+            .complectation{
+                flex: 1;
+                order: 1;
+            }
+            .tank_exp{
+                flex: 1;
+                order: 3;
+            }
+            .fights_amount{
+                flex: 1;
+                order: 2;
             }
         }
     }

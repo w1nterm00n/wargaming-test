@@ -5,7 +5,7 @@
     grid-template-columns: repeat(3, minmax(260px, 1fr));
     column-gap: 20px;
     row-gap: 50px;
-    @media (max-width: 920px) {
+    @media (min-width: 600px) and (max-width: 920px) {
         grid-template-columns: repeat(2, minmax(260px, 1fr));
 
         .tank_wrapper:is([data-tank="IS-3"], [data-tank="Object-752"]) {
@@ -32,7 +32,7 @@
                 bottom: 115%;
                 left: 300px !important;
                 top: auto !important;
-                right: auto !important;
+                right: auto;
             }
             .exp_calculator::after{
                 left: 130px !important;
@@ -74,7 +74,7 @@
     @media (max-width: 650px) {
         .slider{
             width: 250px !important;
-          }
+        }
     }
     @media (max-width: 600px) {
         grid-template-columns: minmax(260px, 1fr);
@@ -121,6 +121,8 @@
                 visibility 1s;
         }
     }
+
+
     .tank_wrapper:is([data-tank="T-34"], [data-tank="KV-1"], [data-tank="T-150"]) {
         .exp_calculator{
             top: 115%;
@@ -177,5 +179,23 @@
         .exp_calculator::before{
             left: 50%;
         }
+    }
+}
+
+
+@media (max-width: 600px) {
+    .exp_calculator {
+      position: fixed !important;
+      top: 0 !important;
+      bottom: auto !important;
+      right: 0 !important;
+      left: auto !important;
+      background-color: aqua;
+      transform: translate(0, 0) !important;
+      z-index: 99999;
+      width: 100vw;
+      height: 100vh !important;
+      overflow: auto;
+      pointer-events: none;            /* пока крестик не нужен — можно так */
     }
 }

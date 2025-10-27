@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -167,7 +168,7 @@ nav p {
        column-gap: 20px;
   row-gap: 50px;
 }
-@media (max-width: 920px) {
+@media (min-width: 600px) and (max-width: 920px) {
   .tanks_grid {
     grid-template-columns: repeat(2, minmax(260px, 1fr));
   }
@@ -191,7 +192,7 @@ nav p {
     bottom: 115%;
     left: 300px !important;
     top: auto !important;
-    right: auto !important;
+    right: auto;
   }
   .tanks_grid .tank_wrapper:is([data-tank=ST-1], [data-tank=T-150]) .exp_calculator::after {
     left: 130px !important;
@@ -316,6 +317,22 @@ nav p {
   left: 50%;
 }
 
+@media (max-width: 600px) {
+  .exp_calculator {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important;
+    right: 0 !important;
+    left: auto !important;
+    background-color: aqua;
+    transform: translate(0, 0) !important;
+    z-index: 99999;
+    width: 100vw;
+    height: 100vh !important;
+    overflow: auto;
+    pointer-events: none; /* пока крестик не нужен — можно так */
+  }
+}
 .vidget {
   background-color: #1C1C1E;
   flex: 1;

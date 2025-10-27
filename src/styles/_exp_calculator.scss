@@ -91,23 +91,3 @@
 }
 
 
-
-@media (max-width: 650px) {
-    .exp_calculator{
-        .exp_calculator_wrapper{
-            flex-direction: column;
-            .complectation{
-                flex: 1;
-                order: 1;
-            }
-            .tank_exp{
-                flex: 1;
-                order: 3;
-            }
-            .fights_amount{
-                flex: 1;
-                order: 2;
-            }
-        }
-    }
-}

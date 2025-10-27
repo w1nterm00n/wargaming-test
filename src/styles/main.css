@@ -162,10 +162,91 @@ nav p {
   width: fit-content;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   -moz-column-gap: 20px;
        column-gap: 20px;
   row-gap: 50px;
+}
+@media (max-width: 920px) {
+  .tanks_grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=Object-752]) .exp_calculator {
+    bottom: 115%;
+    left: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=Object-752]) .exp_calculator::after {
+    bottom: -36px;
+    transform: rotate(180deg);
+    right: 110px !important;
+    left: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=Object-752]) .exp_calculator::before {
+    bottom: -38px;
+    transform: rotate(180deg);
+    right: 110px !important;
+    left: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=ST-1], [data-tank=T-150]) .exp_calculator {
+    bottom: 115%;
+    left: 300px !important;
+    top: auto !important;
+    right: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=ST-1], [data-tank=T-150]) .exp_calculator::after {
+    left: 130px !important;
+    bottom: -36px;
+    transform: rotate(180deg);
+    top: auto !important;
+    right: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=ST-1], [data-tank=T-150]) .exp_calculator::before {
+    left: 130px !important;
+    bottom: -38px;
+    transform: rotate(180deg);
+    top: auto !important;
+    right: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=T-34]) .exp_calculator::after {
+    left: 140px !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=T-34]) .exp_calculator::before {
+    left: 140px !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=KV-1]) .exp_calculator {
+    left: auto !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=KV-1]) .exp_calculator::after {
+    left: 60% !important;
+  }
+  .tanks_grid .tank_wrapper:is([data-tank=KV-1]) .exp_calculator::before {
+    left: 60% !important;
+  }
+}
+@media (max-width: 650px) {
+  .tanks_grid .slider {
+    width: 250px !important;
+  }
+}
+@media (max-width: 600px) {
+  .tanks_grid {
+    grid-template-columns: minmax(260px, 1fr);
+  }
+  .tanks_grid .exp_calculator .exp_calculator_wrapper {
+    flex-direction: column;
+  }
+  .tanks_grid .exp_calculator .exp_calculator_wrapper .complectation {
+    flex: 1;
+    order: 1;
+  }
+  .tanks_grid .exp_calculator .exp_calculator_wrapper .tank_exp {
+    flex: 1;
+    order: 3;
+  }
+  .tanks_grid .exp_calculator .exp_calculator_wrapper .fights_amount {
+    flex: 1;
+    order: 2;
+  }
 }
 .tanks_grid .tank_wrapper {
   position: relative;
@@ -184,7 +265,6 @@ nav p {
 .tanks_grid .tank_wrapper:hover > .tank + .exp_calculator, .tanks_grid .tank_wrapper:focus-within > .tank + .exp_calculator {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, 0);
   pointer-events: auto;
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s;
 }
@@ -353,23 +433,6 @@ nav p {
   position: absolute;
 }
 
-@media (max-width: 650px) {
-  .exp_calculator .exp_calculator_wrapper {
-    flex-direction: column;
-  }
-  .exp_calculator .exp_calculator_wrapper .complectation {
-    flex: 1;
-    order: 1;
-  }
-  .exp_calculator .exp_calculator_wrapper .tank_exp {
-    flex: 1;
-    order: 3;
-  }
-  .exp_calculator .exp_calculator_wrapper .fights_amount {
-    flex: 1;
-    order: 2;
-  }
-}
 .slider_wrapper {
   height: 57px;
   display: flex;

@@ -2,9 +2,101 @@
     width: fit-content;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
     column-gap: 20px;
     row-gap: 50px;
+    @media (max-width: 920px) {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+
+        .tank_wrapper:is([data-tank="IS-3"], [data-tank="Object-752"]) {
+            .exp_calculator{
+                bottom: 115%;
+                left: auto !important;
+            }
+            .exp_calculator::after{
+                bottom: -36px;
+                transform: rotate(180deg);
+                right: 110px !important; 
+                left: auto !important;
+            }
+            .exp_calculator::before{
+                bottom: -38px;
+                transform: rotate(180deg);
+                right: 110px !important;
+                left: auto !important;
+            }
+        }
+
+        .tank_wrapper:is([data-tank="ST-1"], [data-tank="T-150"]) {
+            .exp_calculator{
+                bottom: 115%;
+                left: 300px !important;
+                top: auto !important;
+                right: auto !important;
+            }
+            .exp_calculator::after{
+                left: 130px !important;
+                bottom: -36px;
+                transform: rotate(180deg); 
+                top: auto !important;
+                right: auto !important;
+            }
+            .exp_calculator::before{
+                left: 130px !important;
+                bottom: -38px;
+                transform: rotate(180deg);
+                top: auto !important;
+                right: auto !important;
+            }
+        }
+
+        .tank_wrapper:is([data-tank="T-34"]) {
+            .exp_calculator::after{
+                left: 140px !important;
+            }
+            .exp_calculator::before{
+                left: 140px !important;
+            }
+        }
+
+        .tank_wrapper:is([data-tank="KV-1"]) {
+            .exp_calculator{
+                left: auto !important;
+            }
+            .exp_calculator::after{
+                left: 60% !important;
+            }
+            .exp_calculator::before{
+                left: 60% !important;
+            }
+        }
+    }
+    @media (max-width: 650px) {
+        .slider{
+            width: 250px !important;
+          }
+    }
+    @media (max-width: 600px) {
+        grid-template-columns: minmax(260px, 1fr);
+        
+        .exp_calculator{
+            .exp_calculator_wrapper{
+                flex-direction: column;
+                .complectation{
+                    flex: 1;
+                    order: 1;
+                }
+                .tank_exp{
+                    flex: 1;
+                    order: 3;
+                }
+                .fights_amount{
+                    flex: 1;
+                    order: 2;
+                }
+            }
+        }
+    }
     .tank_wrapper{
         position: relative;
         .tank{
@@ -22,7 +114,6 @@
         &:focus-within > .tank + .exp_calculator {
             opacity: 1;
             visibility: visible;
-            transform: translate(-50%, 0);
             pointer-events: auto;
             transition:
                 opacity .2s ease,

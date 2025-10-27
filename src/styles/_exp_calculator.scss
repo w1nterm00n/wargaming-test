@@ -14,20 +14,30 @@
         background-color: rgba(42, 42, 42, 0.9);
         padding: 30px;
         justify-content: space-between;
+        border: 1px solid #747474;
         .heading{
             font-weight: 700;
             color: #AEAC7E;
             font-size: 28px;
+            margin-bottom: 10px;
         }
         .complectation{
             flex: 1;
-            flex-basis: 200px;
+            flex-basis: 300px;
             margin-bottom: 20px;
             .complectationForm{
                 margin-top: 10px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+                margin-bottom: 10px;
+                label{
+                    color: #ADADAD;
+                    font-size: 18px;
+                    display: flex;
+                    gap: 6px;
+                    align-items: center;
+                }
             }
         }
         .tank_exp{

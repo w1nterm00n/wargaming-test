@@ -274,15 +274,17 @@ nav p {
   background-color: rgba(42, 42, 42, 0.9);
   padding: 30px;
   justify-content: space-between;
+  border: 1px solid #747474;
 }
 .exp_calculator .exp_calculator_wrapper .heading {
   font-weight: 700;
   color: #AEAC7E;
   font-size: 28px;
+  margin-bottom: 10px;
 }
 .exp_calculator .exp_calculator_wrapper .complectation {
   flex: 1;
-  flex-basis: 200px;
+  flex-basis: 300px;
   margin-bottom: 20px;
 }
 .exp_calculator .exp_calculator_wrapper .complectation .complectationForm {
@@ -290,6 +292,14 @@ nav p {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 10px;
+}
+.exp_calculator .exp_calculator_wrapper .complectation .complectationForm label {
+  color: #ADADAD;
+  font-size: 18px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
 }
 .exp_calculator .exp_calculator_wrapper .tank_exp {
   flex: 1;
@@ -422,6 +432,57 @@ nav p {
   border: 0;
   border-radius: 50%;
   background: url("../assets/knob.png") center/contain no-repeat;
+}
+
+.r__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.r__label {
+  position: relative;
+  padding-left: 25px;
+}
+
+.r__label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: #DDDDDD;
+}
+
+.r__label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0);
+  background: #676767;
+  transition: transform 0.15s ease;
+}
+
+.r__input:checked + .r__label::after {
+  transform: translateY(-50%) scale(1);
+}
+
+.r__input:focus-visible + .r__label::before {
+  outline: 3px solid rgba(255, 209, 26, 0.45);
+  outline-offset: 2px;
+}
+
+.r__input:disabled + .r__label {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 #root {

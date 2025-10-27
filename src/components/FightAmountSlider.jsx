@@ -38,10 +38,10 @@ function FightAmountSlider() {
     <div className="fight_amount_slider">
       <div className="fight_amount_slider_wrapper">
         <div className="slider-row">
-            <div class="slider_wrapper">
-                <div class="slider-shell">
+            <div className="slider_wrapper">
+                <div className="slider-shell">
                     <input
-                    class="slider"
+                    className="slider"
                     type="range"
                     min={min}
                     max={max}

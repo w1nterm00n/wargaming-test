@@ -266,6 +266,7 @@ nav p {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transform: translate(-50%, 0);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.3s;
 }
 .exp_calculator .exp_calculator_wrapper {

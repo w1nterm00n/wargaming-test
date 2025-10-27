@@ -1,0 +1,90 @@
+.tanks_grid{
+    width: fit-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 50px;
+    .tank_wrapper{
+        position: relative;
+        .tank{
+            max-width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h6{
+                color: #FFF;
+                font-size: 28px;
+                font-weight: 700;
+            }
+        }
+        &:hover > .tank + .exp_calculator,
+        &:focus-within > .tank + .exp_calculator {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+            pointer-events: auto;
+            transition:
+                opacity .2s ease,
+                transform .2s ease,
+                visibility 1s;
+        }
+    }
+    .tank_wrapper:is([data-tank="T-34"], [data-tank="KV-1"], [data-tank="T-150"]) {
+        .exp_calculator{
+            top: 115%;
+        }
+        .exp_calculator::after{
+            top: -36px;
+        }
+        .exp_calculator::before{
+            top: -38px;
+        }
+    }
+    .tank_wrapper:is([data-tank="IS-3"], [data-tank="ST-1"], [data-tank="Object-752"]) {
+        .exp_calculator{
+            bottom: 115%;
+        }
+        .exp_calculator::after{
+            bottom: -36px;
+            transform: rotate(180deg); 
+        }
+        .exp_calculator::before{
+            bottom: -38px;
+            transform: rotate(180deg); 
+        }
+    }
+    .tank_wrapper:is([data-tank="T-150"], [data-tank="Object-752"]) {
+        .exp_calculator{
+            bottom: 115%;
+        }
+        .exp_calculator::after{
+            right: 150px;
+        }
+        .exp_calculator::before{
+            right: 150px;
+        }
+    }
+    .tank_wrapper:is([data-tank="T-34"], [data-tank="IS-3"]) {
+        .exp_calculator{
+            left: 300px;
+        }
+        .exp_calculator::after{
+            left: 105px;
+        }
+        .exp_calculator::before{
+            left: 105px;
+        }
+    }
+    .tank_wrapper:is([data-tank="KV-1"], [data-tank="ST-1"]) {
+        .exp_calculator{
+            left: 105px;
+        }
+        .exp_calculator::after{
+            left: 50%;
+        }
+        .exp_calculator::before{
+            left: 50%;
+        }
+    }
+}

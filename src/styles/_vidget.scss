@@ -1,0 +1,29 @@
+.vidget{
+    background-color: #1C1C1E;
+    flex: 1;
+    padding: 20px 40px;
+    .vidger_wrapper{
+        .description{
+            font-size: 16px;
+            color: #FFF;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .vidget{
+        .vidger_wrapper{
+            margin: 0 auto !important;
+            .tanks_grid{
+                width: 100% !important;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                row-gap: 20px;
+                .tank{
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

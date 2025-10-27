@@ -96,11 +96,14 @@ table {
   font-style: normal;
   font-display: swap;
 }
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: "Arial";
+footer {
+  padding: 40px 0;
+  background-color: #050505;
+}
+footer p {
+  text-align: center;
+  color: white;
+  font-weight: 700;
 }
 
 header {
@@ -123,6 +126,118 @@ nav p {
   font-weight: 700;
 }
 
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row .slider {
+  width: 320px;
+}
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row .display {
+  border: 4px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  color: rgb(161, 157, 114);
+  font-size: 34px;
+  font-weight: 700;
+  width: 128px;
+  height: 48px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  background: url("../assets/input_texture.png"), linear-gradient(to bottom, rgb(77, 74, 61) 0%, rgb(110, 101, 63) 100%);
+  background-repeat: repeat, no-repeat;
+  text-align: right;
+}
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row .display::-webkit-outer-spin-button,
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row .display::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row .display {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+}
+
+.tanks_grid {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 50px;
+}
+.tanks_grid .tank_wrapper {
+  position: relative;
+}
+.tanks_grid .tank_wrapper .tank {
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tanks_grid .tank_wrapper .tank h6 {
+  color: #FFF;
+  font-size: 28px;
+  font-weight: 700;
+}
+.tanks_grid .tank_wrapper:hover > .tank + .exp_calculator, .tanks_grid .tank_wrapper:focus-within > .tank + .exp_calculator {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator {
+  top: 115%;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator::after {
+  top: -36px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator::before {
+  top: -38px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator {
+  bottom: 115%;
+}
+.tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator::after {
+  bottom: -36px;
+  transform: rotate(180deg);
+}
+.tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator::before {
+  bottom: -38px;
+  transform: rotate(180deg);
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator {
+  bottom: 115%;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator::after {
+  right: 150px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator::before {
+  right: 150px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator {
+  left: 300px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator::after {
+  left: 105px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator::before {
+  left: 105px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator {
+  left: 105px;
+}
+.tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator::after {
+  left: 50%;
+}
+.tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator::before {
+  left: 50%;
+}
+
 .vidget {
   background-color: #1C1C1E;
   flex: 1;
@@ -133,85 +248,20 @@ nav p {
   color: #FFF;
   margin-bottom: 50px;
 }
-.vidget .vidger_wrapper .tanks_grid {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
-  row-gap: 50px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper {
-  position: relative;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper .tank {
-  max-width: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper .tank h6 {
-  color: #FFF;
-  font-size: 28px;
-  font-weight: 700;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:hover > .tank + .exp_calculator, .vidget .vidger_wrapper .tanks_grid .tank_wrapper:focus-within > .tank + .exp_calculator {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, 0);
-  pointer-events: auto;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator {
-  top: 115%;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator::after {
-  top: -36px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator::before {
-  top: -38px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator {
-  bottom: 115%;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator::after {
-  bottom: -36px;
-  transform: rotate(180deg);
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=IS-3], [data-tank=ST-1], [data-tank=Object-752]) .exp_calculator::before {
-  bottom: -38px;
-  transform: rotate(180deg);
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator {
-  bottom: 115%;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator::after {
-  right: 150px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-150], [data-tank=Object-752]) .exp_calculator::before {
-  right: 150px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator {
-  left: 300px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator::after {
-  left: 105px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=IS-3]) .exp_calculator::before {
-  left: 105px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator {
-  left: 105px;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator::after {
-  left: 50%;
-}
-.vidget .vidger_wrapper .tanks_grid .tank_wrapper:is([data-tank=KV-1], [data-tank=ST-1]) .exp_calculator::before {
-  left: 50%;
-}
 
+@media (max-width: 1000px) {
+  .vidget .vidger_wrapper {
+    margin: 0 auto !important;
+  }
+  .vidget .vidger_wrapper .tanks_grid {
+    width: 100% !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    row-gap: 20px;
+  }
+  .vidget .vidger_wrapper .tanks_grid .tank {
+    margin: 0 auto;
+  }
+}
 .exp_calculator {
   position: absolute;
   z-index: 20;
@@ -222,7 +272,6 @@ nav p {
 }
 .exp_calculator .exp_calculator_wrapper {
   display: flex;
-  height: 350px;
   flex-wrap: wrap;
   background-color: rgba(42, 42, 42, 0.9);
   padding: 30px;
@@ -236,6 +285,7 @@ nav p {
 .exp_calculator .exp_calculator_wrapper .complectation {
   flex: 1;
   flex-basis: 200px;
+  margin-bottom: 20px;
 }
 .exp_calculator .exp_calculator_wrapper .complectation .complectationForm {
   margin-top: 10px;
@@ -264,17 +314,14 @@ nav p {
   color: #F8AA31;
 }
 .exp_calculator .exp_calculator_wrapper .fights_amount {
-  background-color: darkorchid;
-  width: 500px;
+  width: -moz-fit-content;
+  width: fit-content;
   flex: 2;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 0 !important;
 }
-.exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper .slider-row {
-  display: flex;
-  justify-content: space-between;
-}
-.exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper .slider-row .slider {
-  width: 320px;
-}
+
 .exp_calculator::before {
   content: "";
   display: block;
@@ -297,29 +344,6 @@ nav p {
   position: absolute;
 }
 
-footer {
-  padding: 40px 0;
-  background-color: #050505;
-}
-footer p {
-  text-align: center;
-  color: white;
-  font-weight: 700;
-}
-
-@media (max-width: 1000px) {
-  .vidget .vidger_wrapper {
-    margin: 0 auto !important;
-  }
-  .vidget .vidger_wrapper .tanks_grid {
-    width: 100% !important;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    row-gap: 20px;
-  }
-  .vidget .vidger_wrapper .tanks_grid .tank {
-    margin: 0 auto;
-  }
-}
 @media (max-width: 650px) {
   .exp_calculator .exp_calculator_wrapper {
     flex-direction: column;
@@ -336,4 +360,10 @@ footer p {
     flex: 1;
     order: 2;
   }
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Arial";
 }/*# sourceMappingURL=main.css.map */

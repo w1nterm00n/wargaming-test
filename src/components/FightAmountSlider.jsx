@@ -38,17 +38,21 @@ function FightAmountSlider() {
     <div className="fight_amount_slider">
       <div className="fight_amount_slider_wrapper">
         <div className="slider-row">
-          <input
-            className="slider"
-            type="range"
-            min={min}
-            max={max}
-            step={1}
-            value={val}
-            onChange={onSliderChange}
-            style={{ "--percent": percent }}
-            aria-label="Значение ползунка"
-          />
+            <div class="slider_wrapper">
+                <div class="slider-shell">
+                    <input
+                    class="slider"
+                    type="range"
+                    min={min}
+                    max={max}
+                    step={1}
+                    value={val}
+                    onChange={onSliderChange}
+                    aria-label="Значение ползунка"
+                    style={{'--p': `${percent}%`}}
+                    />
+                </div>
+            </div>
 
           <input
             className="display"

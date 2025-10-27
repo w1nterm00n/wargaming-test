@@ -1,0 +1,77 @@
+.slider_wrapper{
+    height: 57px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    border-radius: 4px;
+
+    background:
+      linear-gradient(to bottom, rgba(79, 79, 79, 1), rgba(49, 49, 49, 1)) padding-box,
+      linear-gradient(to bottom, rgba(113, 113, 113), rgba(50, 50, 50)) border-box;
+    
+    .slider-shell{
+        --r: 6px;
+        display: inline-block;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        border-radius: var(--r);
+        padding: 0 2px;
+        border: 1px solid transparent;
+        background:
+          linear-gradient(to bottom, #262626, #303030) padding-box,
+          linear-gradient(to bottom, #2a2a2a, #3f3f3f) border-box;
+    }
+
+    .slider{
+        -webkit-appearance: none;
+        appearance: none;
+        --thumb-d: 32px;
+        --track-h: 6px;
+        width: 320px;
+        height: 5px;
+        background-color: transparent;
+        outline: transparent;
+      }
+      
+      .slider::-webkit-slider-runnable-track{
+        height: 5px;
+        border-radius: 999px;
+        background:
+        linear-gradient(to bottom, #facd01 0%, #9f8300 100%) no-repeat left center / var(--p) var(--track-h),
+        linear-gradient(#1d1d1f, ) left center / 100% var(--track-h) no-repeat;
+        border-radius: 3px;
+      }
+      
+      .slider::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: var(--thumb-d);
+        height: var(--thumb-d);
+        border: 0;
+        border-radius: 50%;
+        background: url("../assets/knob.png") center / contain no-repeat;
+        margin-top: calc((var(--track-h) - var(--thumb-d)) / 2);
+        cursor: grab;
+      }
+      
+      .slider::-moz-range-track{
+        height: var(--track-h);
+        border-radius: 999px;
+        background: #d0d0d0;
+      }
+      .slider::-moz-range-progress{
+        height: var(--track-h);
+        border-radius: 999px;
+        background: #2d8cff;
+      }
+      .slider::-moz-range-thumb{
+        width: var(--thumb-d);
+        height: var(--thumb-d);
+        border: 0;
+        border-radius: 50%;
+        background: url("../assets/knob.png") center / contain no-repeat;
+      }
+
+}
+

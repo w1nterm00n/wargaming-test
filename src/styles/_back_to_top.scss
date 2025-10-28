@@ -1,0 +1,22 @@
+.back_to_top_wrapper{
+    display: block;
+    width: fit-content;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    .back_to_top{
+        display: flex;
+        background-color: #454540;
+        border-radius: 4px;
+        width: 44px;
+        height: 44px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        img{
+            width: 10px;
+            height: 6px;
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import BackToTop from "./components/BackToTop"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Navigation from "./components/Navigation"
@@ -13,6 +14,7 @@ function App() {
 
       <Vidget />
 
+      <BackToTop />
       <Footer />
     </>
   )

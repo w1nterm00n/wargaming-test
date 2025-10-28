@@ -111,3 +111,66 @@
 }
 
 
+@media (max-width: 600px) {
+    
+    .exp_calculator{
+        .exp_calculator_wrapper{
+            .heading{
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 22px;
+            }
+            .complectation{
+                .complectationForm{
+                    padding-top: 30px;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    .r{
+                        margin-top: 0 !important;
+                        .r__label{
+                            padding-left: 0 !important;
+                            color: #ADADAD;
+                            font-size: 12px;
+                        }
+                        .r__label::before{
+                            top: -120% !important;
+                            right: 40%;
+                            left: auto !important;
+                            width: 24px;
+                            height: 24px;
+                        }
+                        .r__label::after{
+                            width: 13.33px;
+                            height: 13.33px;
+                          }
+                        .r__label::after{
+                            top: -120% !important;
+                            left: auto !important;
+                        }
+                        .r__label_pro::after{
+                            right: 39% !important;
+                        }
+                        .r__label_elite::after{
+                            right: 37% !important;
+                        }
+                        .r__label_std::after{
+                            right: 48% !important;
+                        }
+                        .r__label_elite::before{
+                            right: 25% !important;
+                        }
+                        .r__label_pro::before{
+                            right: 28% !important;
+                        }
+                    }
+                }
+            }
+            .tank_exp{
+                
+            }
+            .fights_amount{
+                
+            }
+        }
+    }
+}

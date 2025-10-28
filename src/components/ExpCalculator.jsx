@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FightAmountSlider from "./FightAmountSlider";
 
 
@@ -21,7 +21,7 @@ function showAndHideCalculator() {
     };
 
     w.addEventListener('mouseenter', onEnter);
-    w.addEventListener('mouseleave', onLeave);
+    //w.addEventListener('mouseleave', onLeave);
 
     cleanups.push(() => {
       w.removeEventListener('mouseenter', onEnter);
@@ -32,11 +32,18 @@ function showAndHideCalculator() {
 }
 
 
+
 function ExpCalculator({name}) {
   useEffect(() => {
     const cleanup = showAndHideCalculator();
     return cleanup;
   }, []);
+
+  const [plan, setPlan] = useState("std");
+
+  const handleChange = e => {
+    setPlan(e.target.value);
+  };
 
   return (
     <div className="exp_calculator">
@@ -50,23 +57,24 @@ function ExpCalculator({name}) {
           <img src="./src/assets/closeBtn.png" alt="X" />
         </button>
       </div>
+
       <div className="exp_calculator_wrapper">
         <div className="complectation">
           <div className="heading">Комплектация</div>
           <form className="complectationForm">
           <label className="r">
-            <input className="r__input" type="radio" name="plan" value="std" checked/>
-            <span className="r__label">Стандартная</span>
+            <input className="r__input" type="radio" name="plan" value="std" checked={plan === "std"} onChange={handleChange}/>
+            <span className="r__label r__label_std">Стандартная</span>
           </label>
           
           <label className="r">
-            <input className="r__input" type="radio" name="plan" value="elite"/>
-            <span className="r__label">Элитная</span>
+            <input className="r__input" type="radio" name="plan" value="elite" checked={plan === "elite"} onChange={handleChange}/>
+            <span className="r__label r__label_elite">Элитная</span>
           </label>
           
           <label className="r">
-            <input className="r__input" type="radio" name="plan" value="pro"/>
-            <span className="r__label">Премиум</span>
+            <input className="r__input" type="radio" name="plan" value="pro" checked={plan === "pro"} onChange={handleChange}/>
+            <span className="r__label r__label_pro">Премиум</span>
           </label>
         </form>
         </div>

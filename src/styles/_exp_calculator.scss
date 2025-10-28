@@ -229,3 +229,15 @@
         }
     }
 }
+
+@media (max-width: 450px) {
+    .vidget{
+        padding: 20px 10px !important;
+    }
+    .slider{
+        width: 200px !important;
+    }
+    .exp_calculator_wrapper{
+        padding: 10px !important;
+    }
+}   

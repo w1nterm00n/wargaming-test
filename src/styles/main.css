@@ -224,11 +224,6 @@ nav p {
     left: 60% !important;
   }
 }
-@media (max-width: 650px) {
-  .tanks_grid .slider {
-    width: 250px !important;
-  }
-}
 @media (max-width: 600px) {
   .tanks_grid {
     grid-template-columns: minmax(260px, 1fr);
@@ -584,6 +579,17 @@ nav p {
     height: 1px;
     width: 100%;
     background: linear-gradient(to right, rgba(102, 102, 102, 0) 0%, rgb(102, 102, 102) 50%, rgba(102, 102, 102, 0) 100%);
+  }
+}
+@media (max-width: 450px) {
+  .vidget {
+    padding: 20px 10px !important;
+  }
+  .slider {
+    width: 200px !important;
+  }
+  .exp_calculator_wrapper {
+    padding: 10px !important;
   }
 }
 .slider_wrapper {

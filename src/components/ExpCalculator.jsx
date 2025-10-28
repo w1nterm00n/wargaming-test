@@ -21,7 +21,7 @@ function showAndHideCalculator() {
     };
 
     w.addEventListener('mouseenter', onEnter);
-    //w.addEventListener('mouseleave', onLeave);
+    // w.addEventListener('mouseleave', onLeave);
 
     cleanups.push(() => {
       w.removeEventListener('mouseenter', onEnter);

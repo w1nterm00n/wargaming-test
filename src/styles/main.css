@@ -266,11 +266,11 @@ nav p {
   font-size: 28px;
   font-weight: 700;
 }
-.tanks_grid .tank_wrapper:hover > .tank + .exp_calculator, .tanks_grid .tank_wrapper:focus-within > .tank + .exp_calculator {
+.tanks_grid .tank_wrapper .exp_calculator_is_visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
 }
 .tanks_grid .tank_wrapper:is([data-tank=T-34], [data-tank=KV-1], [data-tank=T-150]) .exp_calculator {
   top: 115%;

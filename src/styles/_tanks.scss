@@ -115,16 +115,12 @@
                 font-weight: 700;
             }
         }
-        &:hover > .tank + .exp_calculator,
-        &:focus-within > .tank + .exp_calculator {
+        .exp_calculator_is_visible{
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
-            transition:
-                opacity .2s ease,
-                transform .2s ease,
-                visibility 1s;
-        }
+            transition: opacity .2s ease, transform .2s ease, visibility 0s;
+          }
     }
 
 

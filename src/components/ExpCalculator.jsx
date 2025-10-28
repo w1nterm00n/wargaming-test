@@ -1,13 +1,50 @@
+import { useEffect } from "react";
 import FightAmountSlider from "./FightAmountSlider";
 
+
+function handleCloseBtn() {
+  console.log("handle close button");
+}
+
+function showAndHideCalculator() {
+  const cleanups = [];
+  document.querySelectorAll('.tank_wrapper').forEach(w => {
+    const c = w.querySelector('.exp_calculator');
+    if (!c) return;
+
+    const onEnter = () => c.classList.add('exp_calculator_is_visible');
+    const onLeave = e => {
+      if (!c.contains(e.relatedTarget)) {
+        c.classList.remove('exp_calculator_is_visible');
+      }
+    };
+
+    w.addEventListener('mouseenter', onEnter);
+    w.addEventListener('mouseleave', onLeave);
+
+    cleanups.push(() => {
+      w.removeEventListener('mouseenter', onEnter);
+      w.removeEventListener('mouseleave', onLeave);
+    });
+  });
+  return () => cleanups.forEach(fn => fn());
+}
+
+
+
 function ExpCalculator({name}) {
+  useEffect(() => {
+    const cleanup = showAndHideCalculator();
+    return cleanup;
+  }, []);
+
   return (
     <div className="exp_calculator">
       <div className="close_btn_and_name">
         <div className="name">
           {name}
         </div>
-        <button className="close_btn">
+        <button className="close_btn" onClick={handleCloseBtn}>
           <img src="./src/assets/closeBtn.png" alt="X" />
         </button>
       </div>

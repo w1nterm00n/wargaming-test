@@ -104,6 +104,7 @@
     }
     .tank_wrapper{
         position: relative;
+        cursor: pointer;
         .tank{
             max-width: 260px;
             display: flex;
@@ -192,7 +193,6 @@
       bottom: auto !important;
       right: 0 !important;
       left: auto !important;
-      background-color: aqua;
       transform: translate(0, 0) !important;
       z-index: 99999;
       width: 100vw;

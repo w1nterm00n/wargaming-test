@@ -254,6 +254,7 @@ nav p {
 }
 .tanks_grid .tank_wrapper {
   position: relative;
+  cursor: pointer;
 }
 .tanks_grid .tank_wrapper .tank {
   max-width: 260px;
@@ -327,7 +328,6 @@ nav p {
     bottom: auto !important;
     right: 0 !important;
     left: auto !important;
-    background-color: aqua;
     transform: translate(0, 0) !important;
     z-index: 99999;
     width: 100vw;
@@ -429,15 +429,15 @@ nav p {
 .exp_calculator .exp_calculator_wrapper .tank_exp .heading {
   padding-bottom: 10px;
 }
-.exp_calculator .exp_calculator_wrapper .tank_exp div {
+.exp_calculator .exp_calculator_wrapper .tank_exp .tank_exp_wrapper {
   display: flex;
   gap: 40px;
 }
-.exp_calculator .exp_calculator_wrapper .tank_exp div img {
+.exp_calculator .exp_calculator_wrapper .tank_exp .tank_exp_wrapper img {
   width: 66px;
   height: 66px;
 }
-.exp_calculator .exp_calculator_wrapper .tank_exp div .tank_exp_value {
+.exp_calculator .exp_calculator_wrapper .tank_exp .tank_exp_wrapper .tank_exp_value {
   font-weight: 700;
   font-size: 56px;
   color: #F8AA31;
@@ -474,6 +474,22 @@ nav p {
 }
 
 @media (max-width: 600px) {
+  .tank_wrapper {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .exp_calculator {
+    background-color: rgba(42, 42, 42, 0.95);
+  }
+  .exp_calculator .exp_calculator_wrapper {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    border: none;
+  }
   .exp_calculator .exp_calculator_wrapper .heading {
     text-align: center;
     margin-bottom: 20px;
@@ -521,6 +537,53 @@ nav p {
   }
   .exp_calculator .exp_calculator_wrapper .complectation .complectationForm .r .r__label_pro::before {
     right: 28% !important;
+  }
+  .exp_calculator .exp_calculator_wrapper .tank_exp {
+    margin-top: 20px;
+  }
+  .exp_calculator .exp_calculator_wrapper .tank_exp .heading {
+    display: block;
+    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  .exp_calculator .exp_calculator_wrapper .tank_exp .tank_exp_wrapper {
+    justify-content: center;
+    align-items: center;
+  }
+  .exp_calculator .exp_calculator_wrapper .tank_exp .tank_exp_wrapper img {
+    width: 46px;
+    height: 46px;
+  }
+  .exp_calculator .exp_calculator_wrapper .tank_exp .tank_exp_wrapper .tank_exp_value {
+    font-size: 40px;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount {
+    width: auto !important;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider {
+    position: relative;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper {
+    margin-bottom: 35px;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper .slider-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider .fight_amount_slider_wrapper .slider-row .slider_wrapper {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .exp_calculator .exp_calculator_wrapper .fights_amount .fight_amount_slider::before {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, rgba(102, 102, 102, 0) 0%, rgb(102, 102, 102) 50%, rgba(102, 102, 102, 0) 100%);
   }
 }
 .slider_wrapper {

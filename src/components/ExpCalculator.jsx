@@ -80,7 +80,7 @@ function ExpCalculator({name}) {
         </div>
         <div className="tank_exp">
           <div className="heading">Опыт танка</div>
-          <div>
+          <div className="tank_exp_wrapper">
             <img src="./src/assets/star.png" alt="star" />
             <div className="tank_exp_value">
                 330

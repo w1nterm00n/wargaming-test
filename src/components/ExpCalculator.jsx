@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import FightAmountSlider from "./FightAmountSlider";
 
 
-function handleCloseBtn() {
-  console.log("handle close button");
+function handleCloseBtn(calcEl) {
+  if (!calcEl) return;
+  calcEl.classList.remove('exp_calculator_is_visible');
 }
 
 function showAndHideCalculator() {
@@ -31,7 +32,6 @@ function showAndHideCalculator() {
 }
 
 
-
 function ExpCalculator({name}) {
   useEffect(() => {
     const cleanup = showAndHideCalculator();
@@ -44,7 +44,9 @@ function ExpCalculator({name}) {
         <div className="name">
           {name}
         </div>
-        <button className="close_btn" onClick={handleCloseBtn}>
+          <button className="close_btn" onClick={(e) =>
+            handleCloseBtn(e.currentTarget.closest('.exp_calculator'))
+          }>
           <img src="./src/assets/closeBtn.png" alt="X" />
         </button>
       </div>

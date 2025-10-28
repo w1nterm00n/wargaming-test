@@ -248,6 +248,9 @@ nav p {
     flex: 1;
     order: 2;
   }
+  .tanks_grid .exp_calculator .close_btn_and_name {
+    display: flex !important;
+  }
 }
 .tanks_grid .tank_wrapper {
   position: relative;
@@ -365,6 +368,26 @@ nav p {
   pointer-events: none;
   transform: translate(-50%, 0);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.3s;
+}
+.exp_calculator .close_btn_and_name {
+  padding: 20px;
+  display: none !important;
+  justify-content: space-between;
+}
+.exp_calculator .close_btn_and_name .name {
+  font-weight: 700;
+  font-size: 28px;
+  color: #B9B9B9;
+}
+.exp_calculator .close_btn_and_name .close_btn {
+  background-color: #454540;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
 }
 .exp_calculator .exp_calculator_wrapper {
   display: flex;

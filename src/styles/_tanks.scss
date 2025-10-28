@@ -96,6 +96,11 @@
                 }
             }
         }
+        .exp_calculator{
+            .close_btn_and_name{
+                display: flex !important;
+            }
+        }
     }
     .tank_wrapper{
         position: relative;
@@ -180,6 +185,7 @@
             left: 50%;
         }
     }
+
 }
 
 

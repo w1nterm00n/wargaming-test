@@ -9,6 +9,26 @@
       opacity .2s ease,
       transform .2s ease,
       visibility 0s linear .3s;
+    .close_btn_and_name{
+        padding: 20px;
+        display: none !important;
+        justify-content: space-between;
+        .name{
+            font-weight: 700;
+            font-size: 28px;
+            color: #B9B9B9;
+        }
+        .close_btn{
+            background-color: #454540;
+            border-radius: 4px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+        }
+    }
     .exp_calculator_wrapper{
         display: flex;
         flex-wrap: wrap;

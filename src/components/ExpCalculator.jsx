@@ -1,8 +1,16 @@
 import FightAmountSlider from "./FightAmountSlider";
 
-function ExpCalculator() {
+function ExpCalculator({name}) {
   return (
     <div className="exp_calculator">
+      <div className="close_btn_and_name">
+        <div className="name">
+          {name}
+        </div>
+        <button className="close_btn">
+          <img src="./src/assets/closeBtn.png" alt="X" />
+        </button>
+      </div>
       <div className="exp_calculator_wrapper">
         <div className="complectation">
           <div className="heading">Комплектация</div>

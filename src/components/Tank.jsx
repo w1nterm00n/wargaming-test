@@ -8,7 +8,7 @@ function Tank( {name} ) {
                 <img src="./src/assets/tank.png" alt="tank image" />
                 <h6>{name}</h6>
             </div>
-            <ExpCalculator />
+            <ExpCalculator name={name}/>
         </div>
     )
 }

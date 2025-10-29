@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FightAmountSlider from "./FightAmountSlider";
 
 
@@ -39,7 +39,10 @@ function ExpCalculator({name}) {
 
   const [complectation, setComplectation] = useState("std");
   const [fightsAmount, setFightsAmount] = useState(100);
-  const [totalExp, setTotalExp] = useState(330);
+  const [totalExp, setTotalExp] = useState(300);
+  const [displayedExp, setDisplayedExp] = useState(300);
+  const displayedExpRef = useRef(displayedExp);
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     let n = fightsAmount * 3;
@@ -54,6 +57,50 @@ function ExpCalculator({name}) {
     }
 
   }, [complectation, fightsAmount]);
+
+  useEffect(() => {
+    displayedExpRef.current = displayedExp;
+  }, [displayedExp]);
+
+  useEffect(() => {
+    if (displayedExpRef.current === totalExp) {
+      return;
+    }
+
+    const duration = 400;
+    const startValue = displayedExpRef.current;
+    const diff = totalExp - startValue;
+    let startTime = null;
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const step = (timestamp) => {
+      if (startTime === null) {
+        startTime = timestamp;
+      }
+
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutCubic(progress);
+      const nextValue = Math.round(startValue + diff * easedProgress);
+      setDisplayedExp(nextValue);
+
+      if (progress < 1) {
+        animationFrameRef.current = requestAnimationFrame(step);
+      } else {
+        animationFrameRef.current = null;
+      }
+    };
+
+    animationFrameRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+  }, [totalExp]);
 
   const handleComplectation = e => {
     setComplectation(e.target.value);
@@ -100,7 +147,7 @@ function ExpCalculator({name}) {
           <div className="tank_exp_wrapper">
             <img src="./src/assets/star.png" alt="star" />
             <div className="tank_exp_value">
-                {totalExp}
+                {displayedExp}
             </div>
           </div>
         </div>

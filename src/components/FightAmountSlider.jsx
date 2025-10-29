@@ -5,6 +5,7 @@ function FightAmountSlider({ onNumberChange }) {
 
   const [val, setVal] = useState(100);
   const [text, setText] = useState("100");
+  const [isManualInput, setIsManualInput] = useState(false);
   const percent = ((val - min) * 100) / (max - min);
   const clamp = (n) => Math.min(max, Math.max(min, n));
 
@@ -18,6 +19,7 @@ function FightAmountSlider({ onNumberChange }) {
     const n = Number(e.target.value);
     setVal(n);
     setText(String(n));
+    setIsManualInput(false);
   };
 
 
@@ -25,6 +27,7 @@ function FightAmountSlider({ onNumberChange }) {
     //срабатывает когда ввожу цифры через инпут (на каждой цифре)
     const t = e.target.value;
     setText(t);
+    setIsManualInput(true);
     const n = Number(t);
     if (!Number.isNaN(n)) {
       setVal(clamp(Math.round(n)));
@@ -61,7 +64,7 @@ function FightAmountSlider({ onNumberChange }) {
             </div>
 
           <input
-            className="display"
+            className={`display${isManualInput ? " display--manual" : ""}`}
             type="number"
             inputMode="numeric"
             min={min}

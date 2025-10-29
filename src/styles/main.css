@@ -157,6 +157,9 @@ nav p {
   -webkit-appearance: textfield;
           appearance: textfield;
 }
+.fight_amount_slider .fight_amount_slider_wrapper .slider-row .display--manual {
+  border-color: #F8AA31 !important;
+}
 
 .tanks_grid {
   width: -moz-fit-content;

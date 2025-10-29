@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function FightAmountSlider() {
+function FightAmountSlider({ onNumberChange }) {
   const min = 0, max = 300;
 
   const [val, setVal] = useState(100);
@@ -8,8 +8,13 @@ function FightAmountSlider() {
   const percent = ((val - min) * 100) / (max - min);
   const clamp = (n) => Math.min(max, Math.max(min, n));
 
+    useEffect(() => {
+      onNumberChange(val);
+    }, [onNumberChange, val]);
+
 
   const onSliderChange = (e) => {
+    //срабатывает когда выбираю значение ползунком
     const n = Number(e.target.value);
     setVal(n);
     setText(String(n));
@@ -17,9 +22,9 @@ function FightAmountSlider() {
 
 
   const onInputChange = (e) => {
+    //срабатывает когда ввожу цифры через инпут (на каждой цифре)
     const t = e.target.value;
     setText(t);
-
     const n = Number(t);
     if (!Number.isNaN(n)) {
       setVal(clamp(Math.round(n)));
@@ -28,6 +33,7 @@ function FightAmountSlider() {
 
 
   const onInputBlur = () => {
+    //срабатывает когда полностью ввела число через инпут
     const n = Number(text);
     const normalized = Number.isNaN(n) ? val : clamp(Math.round(n));
     setVal(normalized);

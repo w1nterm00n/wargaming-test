@@ -21,7 +21,7 @@ function showAndHideCalculator() {
     };
 
     w.addEventListener('mouseenter', onEnter);
-    // w.addEventListener('mouseleave', onLeave);
+    w.addEventListener('mouseleave', onLeave);
 
     cleanups.push(() => {
       w.removeEventListener('mouseenter', onEnter);
@@ -31,19 +31,36 @@ function showAndHideCalculator() {
   return () => cleanups.forEach(fn => fn());
 }
 
-
-
 function ExpCalculator({name}) {
   useEffect(() => {
     const cleanup = showAndHideCalculator();
     return cleanup;
   }, []);
 
-  const [plan, setPlan] = useState("std");
+  const [complectation, setComplectation] = useState("std");
+  const [fightsAmount, setFightsAmount] = useState(100);
+  const [totalExp, setTotalExp] = useState(330);
 
-  const handleChange = e => {
-    setPlan(e.target.value);
+  useEffect(() => {
+    let n = fightsAmount * 3;
+    if (complectation === "std") {
+      setTotalExp(n);
+    } else if (complectation === "elite") {
+      setTotalExp(n + Math.round(n * 0.1));
+    } else if (complectation === "pro") {
+      setTotalExp(n + Math.round(n * 0.2));
+    } else {
+      setTotalExp(0);
+    }
+
+  }, [complectation, fightsAmount]);
+
+  const handleComplectation = e => {
+    setComplectation(e.target.value);
   };
+  const handleFightsAmount = (value) => {
+    setFightsAmount(value);
+  }
 
   return (
     <div className="exp_calculator">
@@ -63,17 +80,17 @@ function ExpCalculator({name}) {
           <div className="heading">Комплектация</div>
           <form className="complectationForm">
           <label className="r">
-            <input className="r__input" type="radio" name="plan" value="std" checked={plan === "std"} onChange={handleChange}/>
+            <input className="r__input" type="radio" name="plan" value="std" checked={complectation === "std"} onChange={handleComplectation}/>
             <span className="r__label r__label_std">Стандартная</span>
           </label>
           
           <label className="r">
-            <input className="r__input" type="radio" name="plan" value="elite" checked={plan === "elite"} onChange={handleChange}/>
+            <input className="r__input" type="radio" name="plan" value="elite" checked={complectation === "elite"} onChange={handleComplectation}/>
             <span className="r__label r__label_elite">Элитная</span>
           </label>
           
           <label className="r">
-            <input className="r__input" type="radio" name="plan" value="pro" checked={plan === "pro"} onChange={handleChange}/>
+            <input className="r__input" type="radio" name="plan" value="pro" checked={complectation === "pro"} onChange={handleComplectation}/>
             <span className="r__label r__label_pro">Премиум</span>
           </label>
         </form>
@@ -83,13 +100,13 @@ function ExpCalculator({name}) {
           <div className="tank_exp_wrapper">
             <img src="./src/assets/star.png" alt="star" />
             <div className="tank_exp_value">
-                330
+                {totalExp}
             </div>
           </div>
         </div>
         <div className="fights_amount">
           <div className="heading">Количество боёв</div>
-          <FightAmountSlider />
+          <FightAmountSlider onNumberChange={handleFightsAmount}/>
         </div>
       </div>
     </div>

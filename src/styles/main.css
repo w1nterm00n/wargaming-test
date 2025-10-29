@@ -84,15 +84,15 @@ table {
 }
 
 @font-face {
-  font-family: "Arial";
-  src: local("arial"), url("/public/fonts/arial/arial.woff2") format("woff2"), url("/public/fonts/arial/arial.ttf") format("truetype");
+  font-family: "Arimo";
+  src: local("arimo"), url("/public/fonts/Arimo/Arimo-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Arial";
-  src: local("arial"), url("/public/fonts/arial/arialbold.woff2") format("woff2"), url("/public/fonts/arial/arialbold.ttf") format("truetype");
+  font-family: "Arimo";
+  src: local("arimo"), url("/public/fonts/Arimo/Arimo-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -740,5 +740,5 @@ nav p {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Arial";
+  font-family: "Arimo";
 }/*# sourceMappingURL=main.css.map */
